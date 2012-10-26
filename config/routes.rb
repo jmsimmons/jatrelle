@@ -62,3 +62,15 @@ Jatrelle::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
 end
+
+
+
+Auth::Application.routes.draw do
+  get "log_in" => "sessions#new", :as => "log_in"
+
+  get "sign_up" => "users#new", :as => "sign_up"
+  root :to => "users#new"
+  resources :users
+  resources :sessions
+end
+
